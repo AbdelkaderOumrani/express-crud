@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('./partials/head.ejs') %> 
+    <title><%= title %> </title>
+</head>
+<body class="container">
+
+<header>
+    <%- include ('./partials/header.ejs') %> 
+
+</header>
+
+<main class="my-5">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% users.map(user => { %>
+                <tr>
+                    <th scope="row"><%= user.id %> </th>
+                    <td><%= user.name %></td>
+                    <td><%= user.email %></td>
+                    <td>
+                        <a href="/<%= user.id %>/edit" class="btn btn-info">
+                            <span class="oi oi-pencil text-white"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/<%= user.id %>/delete" class="btn btn-danger">
+                            <span class="oi oi-x text-white"></span>
+                        </a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+      </table>
+</main>
+
+<footer>
+    <%- include ('./partials/footer.ejs') %> 
+</footer>
+
+</body>
+</html>
